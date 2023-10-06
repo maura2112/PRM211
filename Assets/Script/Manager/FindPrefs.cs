@@ -16,6 +16,14 @@ public class FindPrefs : MonoBehaviour
         }
         FindPrefs.instance = this;
     }
+    private void Reset()
+    {
+        if (FindPrefs.instance != null)
+        {
+            Debug.LogError("Only 1 FindPrefs allow to exist!");
+        }
+        FindPrefs.instance = this;
+    }
 
     public virtual GameObject FindPrefabByName(string targetName)
     {
