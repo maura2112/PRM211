@@ -64,11 +64,13 @@ public class Bullet : MonoBehaviour, IProjectile
     void OnTriggerEnter2D(Collider2D col)
     {
 
-        if ( col.gameObject.tag != "Projectile" && col.gameObject.tag!="Player")
+        if ( col.gameObject.tag != "Projectile" && col.gameObject.tag!="Player" && col.gameObject.tag != "SpawnPlane")
         {
             Instantiate(hit_effect, transform.position, Quaternion.identity);
             Destroy(gameObject);
+            Destroy(col.transform.parent.gameObject);
         }
+
     }
 
     public virtual void Spawn()
@@ -77,4 +79,6 @@ public class Bullet : MonoBehaviour, IProjectile
         this.rb.velocity = new Vector2(0f, speed);
         Destroy(gameObject, 5f); //Bullet will despawn after 5 seconds
     }
+
+    
 }

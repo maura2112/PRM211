@@ -11,7 +11,7 @@ public class PlayerShooting : MonoBehaviour
     [Header("Shooting's attribute")]
     [SerializeField] protected KeyCode button;
     [SerializeField] protected Transform shootingPoint;
-    [SerializeField] protected float shootingDelay = 0.25f;
+    [SerializeField] protected float shootingDelay = 0.15f;
     [SerializeField] protected bool canShoot = true;
 
     private void Reset()
