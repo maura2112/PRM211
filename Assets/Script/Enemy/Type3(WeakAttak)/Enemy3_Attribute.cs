@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy2_Attribute : Enemy_Attribute
+public class Enemy3_Attribute : Enemy_Attribute
 {
     private void Start()
     {
@@ -16,7 +16,7 @@ public class Enemy2_Attribute : Enemy_Attribute
 
     protected virtual void LoadAttributes()
     {
-        this.health = 2f;
-        this.dmg = 1f;
+        this.health = 10f;
+        this.dmg = 2f;
     }
 }
