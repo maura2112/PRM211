@@ -40,7 +40,7 @@ public class Enemy3_Action : MonoBehaviour,IEnemy
     {
         this.rb = this.getModel().GetComponent<Rigidbody2D>();
         this.startPosition = this.getModel().transform.position;
-        this.bulletPref = FindPrefabByName("EnemyBullet"); ;
+        this.bulletPref = FindPrefs.Instance.FindPrefabByName("EnemyBullet"); 
         this.shootingPoint = transform.parent.Find("Model").Find("ShootingPoint").transform ;
     }
 
@@ -63,29 +63,6 @@ public class Enemy3_Action : MonoBehaviour,IEnemy
         this.getModel().transform.position = newPosition;
         Destroy(transform.parent.gameObject, 10f);
     }
-
-
-    protected virtual GameObject FindPrefabByName(string targetName)
-    {
-        string[] allPrefabPaths = AssetDatabase.FindAssets("t:Prefab");
-
-        foreach (string prefabPath in allPrefabPaths)
-        {
-            string assetPath = AssetDatabase.GUIDToAssetPath(prefabPath);
-            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
-
-            if (prefab != null && prefab.name == targetName)
-            {
-                Debug.Log("Found: " + prefab.name);
-                Selection.activeObject = prefab;
-                return prefab;
-            }
-        }
-
-        Debug.Log("Not Found: " + targetName);
-        return null;
-    }
-
 
     protected virtual IEnumerator ShootingDelay(float delayTime)
     {

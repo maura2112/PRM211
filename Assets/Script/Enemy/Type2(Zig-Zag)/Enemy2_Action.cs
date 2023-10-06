@@ -7,7 +7,7 @@ public class Enemy2_Action : MonoBehaviour, IEnemy
     [Header("Enemy's attribute")]
     [SerializeField] protected float speed = 2f;
     [SerializeField] protected float zigzagSpeed = 1f;
-    [SerializeField] protected float zigzagDistance = 1f;
+    [SerializeField] protected float zigzagDistance = .75f;
     [SerializeField] protected Vector3 startPosition;
 
     [Header("Enemy's Rigidbody")]

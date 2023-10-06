@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerBoundary : MonoBehaviour
+public class ObjectBoundary : MonoBehaviour
 {
     [Header("ScreenSize")]
     [SerializeField] protected float minX;
@@ -13,7 +13,7 @@ public class PlayerBoundary : MonoBehaviour
     [Header("Boundary's Size")]
     [SerializeField] protected float boundarySize = 0.5f;
 
-    [Header("Player's Rigidbody")]
+    [Header("Rigidbody")]
     [SerializeField] protected Rigidbody2D rb;
 
     private void Start()
@@ -23,7 +23,7 @@ public class PlayerBoundary : MonoBehaviour
 
     private void Update()
     {
-        this.PlayerBound();
+        this.Bounding();
     }
 
     private void Reset()
@@ -50,10 +50,9 @@ public class PlayerBoundary : MonoBehaviour
         Rigidbody2D rb2d = transform.parent.Find("Model").gameObject.GetComponent<Rigidbody2D>();
         this.rb = rb2d;
     }
-    protected virtual void PlayerBound()
+    protected virtual void Bounding()
     {
         GameObject model = transform.parent.Find("Model").gameObject;
-
         Vector3 temp = model.transform.position;
         if (temp.x < minX)
         {

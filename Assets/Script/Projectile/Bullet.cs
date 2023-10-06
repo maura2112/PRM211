@@ -36,29 +36,9 @@ public class Bullet : MonoBehaviour, IProjectile
 
     protected virtual void LoadComponents()
     {
-        this.shoot_effect = FindPrefabByName("Muzzle Flash");
-        this.hit_effect = FindPrefabByName("Explosion");
+        this.shoot_effect = FindPrefs.Instance.FindPrefabByName("Muzzle Flash");
+        this.hit_effect = FindPrefs.Instance.FindPrefabByName("Explosion");
         this.rb = gameObject.GetComponent<Rigidbody2D>();
-    }
-
-    protected virtual GameObject FindPrefabByName(string targetName)
-    {
-        string[] allPrefabPaths = AssetDatabase.FindAssets("t:Prefab");
-
-        foreach (string prefabPath in allPrefabPaths)
-        {
-            string assetPath = AssetDatabase.GUIDToAssetPath(prefabPath);
-            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
-
-            if (prefab != null && prefab.name == targetName)
-            {
-                Debug.Log("Found: " + prefab.name);
-                Selection.activeObject = prefab;
-                return prefab;
-            }
-        }
-        Debug.Log("Not Found: " + targetName);
-        return null;
     }
 
     void OnTriggerEnter2D(Collider2D col)

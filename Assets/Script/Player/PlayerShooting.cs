@@ -25,30 +25,9 @@ public class PlayerShooting : MonoBehaviour
     }
     protected virtual void LoadComponents()
     {
-        this.bulletPref = FindPrefabByName("Bullet"); ;
+        this.bulletPref = FindPrefs.Instance.FindPrefabByName("Bullet"); ;
         this.button = KeyCode.Space;
         this.shootingPoint = transform.parent.Find("Model").Find("ShootingPoint").transform;
-    }
-
-    protected virtual GameObject FindPrefabByName(string targetName)
-    {
-        string[] allPrefabPaths = AssetDatabase.FindAssets("t:Prefab");
-
-        foreach (string prefabPath in allPrefabPaths)
-        {
-            string assetPath = AssetDatabase.GUIDToAssetPath(prefabPath);
-            GameObject prefab = AssetDatabase.LoadAssetAtPath<GameObject>(assetPath);
-
-            if (prefab != null && prefab.name == targetName)
-            {
-                Debug.Log("Found: " + prefab.name);
-                Selection.activeObject = prefab;
-                return prefab;
-            }
-        }
-
-        Debug.Log("Not Found: " + targetName);
-        return null;
     }
 
     protected virtual void Shooting()
