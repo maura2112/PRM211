@@ -309,7 +309,7 @@ GameObject:
   - component: {fileID: 458502504}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Projectile
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1154,7 +1154,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 572bcbff9e4fd384b937f655f48e0ec8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPref: {fileID: 100000, guid: e428c1ddd575f8542b3b7c26dde968d7, type: 3}
+  bulletPref: {fileID: 100000, guid: 58a92a9b3c03a604f84670327048238e, type: 3}
   shootingPoint: {fileID: 1586507058}
   shootingDelay: 1
   canShoot: 1
@@ -1222,7 +1222,7 @@ GameObject:
   - component: {fileID: 1413444018}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1618,7 +1618,7 @@ GameObject:
   - component: {fileID: 1946399857}
   m_Layer: 0
   m_Name: Model
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

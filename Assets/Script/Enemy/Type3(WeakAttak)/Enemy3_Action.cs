@@ -40,16 +40,8 @@ public class Enemy3_Action : MonoBehaviour,IEnemy
     {
         this.rb = this.getModel().GetComponent<Rigidbody2D>();
         this.startPosition = this.getModel().transform.position;
-        this.bulletPref = FindPrefabByName("Bullet"); ;
+        this.bulletPref = FindPrefabByName("EnemyBullet"); ;
         this.shootingPoint = transform.parent.Find("Model").Find("ShootingPoint").transform ;
-        this.Flip();
-    }
-
-    protected virtual void Flip()
-    {
-        Vector2 currentScale = getModel().transform.localScale;
-        currentScale.x *= -1;
-        getModel().transform.localScale = currentScale;
     }
 
     protected virtual GameObject getModel()
