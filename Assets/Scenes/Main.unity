@@ -342,6 +342,8 @@ MonoBehaviour:
   bulletPref: {fileID: 100000, guid: e428c1ddd575f8542b3b7c26dde968d7, type: 3}
   button: 32
   shootingPoint: {fileID: 2107062454}
+  shootingDelay: 0.25
+  canShoot: 1
 --- !u!1 &515639371
 GameObject:
   m_ObjectHideFlags: 0
@@ -678,10 +680,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3444287420c593e418ff94b133274fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  minX: 0.8958334
-  maxX: -0.8958334
-  minY: 0.68229157
-  maxY: -0.68229157
+  minX: 0.5
+  maxX: -0.5
+  minY: 0.5
+  maxY: -0.5
   boundarySize: 0.5
   rb: {fileID: 1421521981}
 --- !u!1 &1244082151
