@@ -51,6 +51,13 @@ public class EnemyBullet : MonoBehaviour
             Instantiate(hit_effect, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
+        if(col.gameObject.tag == "Player")
+        {
+            if (col.gameObject != null)
+            {
+                PlayerHealth.Instance.LoseHP(this.dmg);
+            }
+        }
 
     }
 

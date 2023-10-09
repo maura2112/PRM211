@@ -47,8 +47,13 @@ public class Bullet : MonoBehaviour, IProjectile
         if ( col.gameObject.tag != "Projectile" && col.gameObject.tag!="Player" && col.gameObject.tag != "SpawnPlane")
         {
             Instantiate(hit_effect, transform.position, Quaternion.identity);
+            Debug.Log(col.gameObject.name);
             Destroy(gameObject);
-            Destroy(col.transform.parent.gameObject);
+            if (col.gameObject != null)
+            {
+                col.gameObject.transform.parent.Find("Attribute").GetComponent<Enemy_Attribute>().LoseHP(this.dmg);
+            }
+
         }
 
     }
