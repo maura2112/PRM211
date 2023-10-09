@@ -8,6 +8,7 @@ public class EnemyBullet : MonoBehaviour
     [Header("Bullet's attribute")]
     [SerializeField] protected float speed = 8;
     [SerializeField] protected float dmg = 1;
+    [SerializeField] public Vector2 direction;
 
     [Header("Bullet's Effect")]
     [SerializeField] protected GameObject shoot_effect;
@@ -58,4 +59,14 @@ public class EnemyBullet : MonoBehaviour
         this.rb.velocity = new Vector2(0f, -speed);
         Destroy(gameObject, 5f); //Bullet will despawn after 5 seconds
     }
+
+    public virtual void Spawning(Vector2 direction)
+    {
+        GameObject obj = (GameObject)Instantiate(shoot_effect, transform.position - new Vector3(0, 0, 5), Quaternion.identity); //Spawn muzzle flash
+        this.rb.velocity = direction * speed;
+        Destroy(gameObject, 5f); //Bullet will despawn after 5 seconds
+    }
+
+
+
 }

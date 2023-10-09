@@ -40,7 +40,7 @@ public class Enemy3_Action : MonoBehaviour,IEnemy
     {
         this.rb = this.getModel().GetComponent<Rigidbody2D>();
         this.startPosition = this.getModel().transform.position;
-        this.bulletPref = FindPrefs.Instance.FindPrefabByName("EnemyBullet"); 
+        this.bulletPref = FindPrefs.Instance.FindPrefabByName("EnemyBullet");   
         this.shootingPoint = transform.parent.Find("Model").Find("ShootingPoint").transform ;
     }
 
@@ -61,13 +61,18 @@ public class Enemy3_Action : MonoBehaviour,IEnemy
         float newX = this.startPosition.x + Mathf.Sin(Time.time * speed) * zigzagDistance;
         Vector3 newPosition = new Vector3(newX, this.getModel().transform.position.y, this.getModel().transform.position.z);
         this.getModel().transform.position = newPosition;
-        Destroy(transform.parent.gameObject, 10f);
+        //Destroy(transform.parent.gameObject, 10f);
     }
 
     protected virtual IEnumerator ShootingDelay(float delayTime)
     {
         canShoot = false;
         Instantiate(this.bulletPref, this.shootingPoint.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
+        Instantiate(this.bulletPref, this.shootingPoint.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
+        Instantiate(this.bulletPref, this.shootingPoint.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
         yield return new WaitForSeconds(delayTime);
         canShoot = true;
 
