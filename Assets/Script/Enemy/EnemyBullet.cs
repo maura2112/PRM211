@@ -23,6 +23,7 @@ public class EnemyBullet : MonoBehaviour
     void Start()
     {
         this.Spawn();
+        //this.Spawning(this.direction);
     }
 
     private void Reset()
