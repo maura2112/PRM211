@@ -1352,7 +1352,7 @@ RectTransform:
   m_GameObject: {fileID: 615384548}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0, y: 0, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 60296640}
@@ -2455,6 +2455,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   borderColor: {r: 0.99607843, g: 1, b: 0.46666667, a: 1}
   textColor: {r: 0.43137255, g: 0, b: 0.7529412, a: 1}
+  buttonPanel: {fileID: 615384548}
 --- !u!114 &1434815189
 MonoBehaviour:
   m_ObjectHideFlags: 0
