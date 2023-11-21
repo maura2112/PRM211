@@ -1486,7 +1486,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922174402}
-  m_LocalRotation: {x: -0, y: 0.25881907, z: -0, w: 0.9659259}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.167, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1841,7 +1841,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0.10478389, y: -0.13558817}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -1852,7 +1852,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 5, y: 1}
+  m_Size: {x: 4.860818, y: 0.92604256}
   m_EdgeRadius: 0
 --- !u!1 &1162728765
 GameObject:
@@ -2197,7 +2197,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1359694856}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4, y: 4.12, z: 0}
+  m_LocalPosition: {x: -0.09, y: 4.12, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2230,7 +2230,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1374589155}
-  m_LocalRotation: {x: -0, y: 0.5, z: -0, w: 0.8660254}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.163, y: 0.23, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -2554,6 +2554,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1513424850}
+  - component: {fileID: 1513424851}
   m_Layer: 0
   m_Name: EnemyList
   m_TagString: Untagged
@@ -2576,6 +2577,29 @@ Transform:
   m_Father: {fileID: 865125417}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1513424851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1513424849}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6b674c104e53304288461e453e1f2fa, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemyList:
+  - {fileID: 1430388667990947016, guid: 1db83dbb1d4663242873783d6fa9a393, type: 3}
+  - {fileID: 2872996049188788450, guid: 9498b921aac11f146897428484dca6a7, type: 3}
+  - {fileID: 2796158133702629372, guid: 90936b47f504daf4f89f0ef04634f38d, type: 3}
+  minCooldownTimer: 2
+  maxCooldownTimer: 5
+  randomNumberInList: 0
+  numberPerTurn: 0
+  isSpawning: 0
+  spawingSize: {fileID: 1156124352}
+  spawningPoint: {x: 0, y: 0}
 --- !u!1 &1519320246
 GameObject:
   m_ObjectHideFlags: 0
@@ -3451,7 +3475,7 @@ GameObject:
   - component: {fileID: 2088992702}
   m_Layer: 0
   m_Name: Attribute
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3483,7 +3507,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd967b47416ee2e48aa885ad447c68ae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  health: 1
+  health: 5
   dmg: 1
   point: 0
   money: 0
@@ -3738,7 +3762,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8902554833ba44846aaf7155d2864afa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPref: {fileID: 100000, guid: 58a92a9b3c03a604f84670327048238e, type: 3}
+  bulletPref: {fileID: 100000, guid: 62cb17b371c3aad4581a5b222d475498, type: 3}
   shootingPoint:
   - {fileID: 1988119216}
   - {fileID: 922174403}

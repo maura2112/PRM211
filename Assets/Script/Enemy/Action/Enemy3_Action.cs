@@ -14,8 +14,7 @@ public class Enemy3_Action : MonoBehaviour,IEnemy
     [SerializeField] protected bool canShoot = true;
 
     [Header("Enemy's attribute")]
-    [SerializeField] protected float speed = 1f;
-    [SerializeField] protected float zigzagDistance = 2.5f;
+    [SerializeField] protected float speed = 2.5f;
     [SerializeField] protected Vector3 startPosition;
 
     [Header("Enemy's Rigidbody")]
@@ -23,6 +22,7 @@ public class Enemy3_Action : MonoBehaviour,IEnemy
 
     private void Start()
     {
+        this.startPosition = this.getModel().transform.position;
     }
     private void Reset()
     {
@@ -39,7 +39,7 @@ public class Enemy3_Action : MonoBehaviour,IEnemy
     protected virtual void LoadComponents()
     {
         this.rb = this.getModel().GetComponent<Rigidbody2D>();
-        this.startPosition = this.getModel().transform.position;
+        
         this.bulletPref = FindPrefs.Instance.FindPrefabByName("EnemyBullet");   
         this.shootingPoint = transform.parent.Find("Model").Find("ShootingPoint").transform ;
     }
@@ -58,7 +58,7 @@ public class Enemy3_Action : MonoBehaviour,IEnemy
 
     public void Move()
     {
-        float newX = this.startPosition.x + Mathf.Sin(Time.time * speed) * zigzagDistance;
+        float newX = this.startPosition.x + Mathf.Sin(Time.time * speed);
         Vector3 newPosition = new Vector3(newX, this.getModel().transform.position.y, this.getModel().transform.position.z);
         this.getModel().transform.position = newPosition;
         //Destroy(transform.parent.gameObject, 10f);

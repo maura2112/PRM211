@@ -28,13 +28,11 @@ public class UI_GameName : MonoBehaviour
             this.transform.Find("Text").GetComponent<Text>().DOColor(textColor, 3f);
             this.transform.DOMoveY(transform.position.y + 775, 2f).SetEase(Ease.InBack).OnComplete(() =>
             {
-                this.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1f).SetLoops(-1, LoopType.Yoyo);
-            }).OnComplete(() =>
-            {
                 if(buttonPanel != null)
                 {
                     buttonPanel.transform.DOScale(Vector3.one, .5f);
                 }
+                this.transform.DOScale(new Vector3(1.2f, 1.2f, 1.2f), 1f).SetLoops(-1, LoopType.Yoyo);
                
             });
 

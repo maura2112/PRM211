@@ -35,14 +35,12 @@ public class Enemy5_Action : MonoBehaviour
     {
         this.Move();
         this.Attack();
-
-
     }
 
     protected virtual void LoadComponents()
     {
         this.rb = this.getModel().GetComponent<Rigidbody2D>();
-        this.bulletPref = FindPrefs.Instance.FindPrefabByName("EnemyBullet");
+        this.bulletPref = FindPrefs.Instance.FindPrefabByName("DirectBullet");
         for (int i = 1; i <= 3; i++)
         {
             this.shootingPoint.Add(transform.parent.Find("Model").Find("ShootingPoint" + i).transform);
@@ -51,12 +49,10 @@ public class Enemy5_Action : MonoBehaviour
 
     private void RotateShootingPoint()
     {
-        Transform leftShootingPoint = this.shootingPoint[1];
-        Transform rightShootingPoint = this.shootingPoint[2];
-        Quaternion leftRotation = Quaternion.Euler(0, 30, 0);
-        Quaternion rightRotation = Quaternion.Euler(0, 60, 0);
-        leftShootingPoint.rotation *= leftRotation;
-        rightShootingPoint.rotation *= rightRotation;
+        //shootingPoint[1].rotation = Quaternion.Euler(new Vector2(Mathf.Cos(Mathf.Deg2Rad * 240), Mathf.Sin(Mathf.Deg2Rad * 240), 0).normalized);
+        //Debug.Log(shootingPoint[1].rotation);
+        //shootingPoint[2].rotation = Quaternion.Euler(new Vector2(Mathf.Cos(Mathf.Deg2Rad * 240), Mathf.Sin(Mathf.Deg2Rad * 240), 0).normalized);
+        //shootingPoint[0].rotation = Quaternion.Euler(new Vector2.down);
     }
 
     protected virtual GameObject getModel()
@@ -67,11 +63,13 @@ public class Enemy5_Action : MonoBehaviour
     {
         if (canShoot)
         {
-            for (int i = 0; i < 3; i++)
-            {
-                StartCoroutine(ShootingDelay(this.shootingDelay, shootingPoint[i]));
-            }
-
+            StartCoroutine(ShootingDelay(this.shootingDelay, shootingPoint[0],  Vector2.down));
+            StartCoroutine(ShootingDelay(this.shootingDelay, shootingPoint[1], new Vector2(Mathf.Cos(Mathf.Deg2Rad * 240), Mathf.Sin(Mathf.Deg2Rad * 240)).normalized));
+            StartCoroutine(ShootingDelay(this.shootingDelay, shootingPoint[2], new Vector2(Mathf.Cos(Mathf.Deg2Rad * 270), Mathf.Sin(Mathf.Deg2Rad * 270)).normalized));
+            //for (int i = 0; i < 3; i++)
+            //{
+            //    StartCoroutine(ShootingDelay(this.shootingDelay, shootingPoint[i]));
+            //}
         }
     }
 
@@ -81,10 +79,11 @@ public class Enemy5_Action : MonoBehaviour
         Destroy(transform.parent.gameObject, 15f);
     }
 
-    protected virtual IEnumerator ShootingDelay(float delayTime, Transform shootpoint)
+    protected virtual IEnumerator ShootingDelay(float delayTime, Transform shootPoint, Vector2 direction)
     {
         canShoot = false;
-        Instantiate(this.bulletPref, shootpoint.position, Quaternion.identity);
+        Instantiate(this.bulletPref, shootPoint.position, Quaternion.identity);
+        this.bulletPref.GetComponent<Rigidbody2D>().velocity = direction * 8;
         yield return new WaitForSeconds(delayTime);
         canShoot = true;
 

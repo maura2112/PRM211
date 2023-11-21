@@ -15,6 +15,7 @@ public class Enemy2_Action : MonoBehaviour, IEnemy
 
     private void Start()
     {
+        this.startPosition = this.getModel().transform.position;
     }
     private void Reset()
     {
@@ -30,7 +31,7 @@ public class Enemy2_Action : MonoBehaviour, IEnemy
     protected virtual void LoadComponents()
     {
         this.rb = this.getModel().GetComponent<Rigidbody2D>();
-        this.startPosition = this.getModel().transform.position;
+        
     }
 
     protected virtual GameObject getModel()
@@ -48,6 +49,6 @@ public class Enemy2_Action : MonoBehaviour, IEnemy
             float newY = this.startPosition.y - Time.time * zigzagSpeed;
             Vector3 newPosition = new Vector3(newX, newY, this.getModel().transform.position.z);
             this.getModel().transform.position = newPosition;
-            Destroy(transform.parent.gameObject, 10f);
+            Destroy(transform.parent.gameObject, 6f);
     }
 }
