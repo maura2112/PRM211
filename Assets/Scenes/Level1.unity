@@ -2593,8 +2593,9 @@ MonoBehaviour:
   - {fileID: 1430388667990947016, guid: 1db83dbb1d4663242873783d6fa9a393, type: 3}
   - {fileID: 2872996049188788450, guid: 9498b921aac11f146897428484dca6a7, type: 3}
   - {fileID: 2796158133702629372, guid: 90936b47f504daf4f89f0ef04634f38d, type: 3}
-  minCooldownTimer: 2
-  maxCooldownTimer: 5
+  - {fileID: 6681222498745132488, guid: 962b265661726cd43ae1a8f2fa665c5a, type: 3}
+  minCooldownTimer: 1.5
+  maxCooldownTimer: 3
   randomNumberInList: 0
   numberPerTurn: 0
   isSpawning: 0

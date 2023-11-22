@@ -29,8 +29,8 @@ public class SpawnerManager : MonoBehaviour
     private void Reset()
     {
         LoadComponents();
-        this.minCooldownTimer = 2f;
-        this.maxCooldownTimer = 5f;
+        this.minCooldownTimer = 1.5f;
+        this.maxCooldownTimer = 3f;
         Debug.Log("Time of random number enemies in list and enemies per turn is changing during the game!");
     }
 
